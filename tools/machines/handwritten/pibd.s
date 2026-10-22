@@ -1,0 +1,1313 @@
+/* P-I-BD 44.1 kHz render (pibd_render_block_44k1), hand-written SHARC+.
+ *
+ * Bit-exact replacement for the translated render of the original OS 1.63
+ * DSP56300 code at P:$142145-$142278 (see docs/FULL49_HANDWRITTEN.md for the
+ * section map). It keeps the translated voice layout and the shared scratch
+ * contract: every word of voice state, x/y scratch, y:$20 history and the
+ * 44.1 kHz block ends as the original leaves it.
+ *
+ * Accumulators. A DSP56300 accumulator value A (56 bits, A = 2*x*y for a
+ * fractional product) is held in a SHARC MR register as A * 2^8: one operand
+ * low-aligned (a 24-bit value sign-extended in 32 bits, as stored in memory),
+ * the other shifted left 8, multiplied (SSF). Then MR1 = A2:A1 sign-extended,
+ * MR0 = A0 << 8, and MR1 is the truncated 24-bit read of A before limiting.
+ * Limiting (a move from an accumulator) clamps MR1 to [-2^23, 2^23-1]. A
+ * 24-bit integer added at A1 adds to MR1, or multiplies (x << 8) by 2^23.
+ * "R = Rx * Ry (SSF)" with the same alignment gives floor(2xy / 2^24), a
+ * product moved straight to a register.
+ *
+ * Declines (calls the reference render) when the voice is outside the
+ * states the original program keeps it in: virtual voice >= 16, a delay
+ * pointer outside its own 512-word line, two pointers in one line, a read
+ * start more than one wrap away, Y2 < 0 (table index), or the
+ * sample phase near the ends of the linear source words.
+ *
+ * Calling convention as the translated renders: R4 = voice, R8 = sine.
+ * @SRC@ = byte address of source word 0 (immutable source base - 0x80000).
+ * @TMP@ = a 256-word scratch block owned by the hand-written renders.
+ */
+.EXTERN md_shared_scratch_x.;
+.EXTERN md_shared_scratch_y.;
+.EXTERN md_shared_y20.;
+.EXTERN pibd_render_block_44k1_c.;
+.SECTION/SW seg_swco;
+.GLOBAL pibd_render_block_44k1.;
+pibd_render_block_44k1.:
+    I7=MODIFY (I7,-0x34)(NW);
+    DM (-3,I6) = R8;
+    DM (-4,I6) = R9;
+    DM (-5,I6) = R10;
+    DM (-6,I6) = R11;
+    DM (-7,I6) = R12;
+    DM (-8,I6) = R13;
+    DM (-9,I6) = R14;
+    DM (-10,I6) = R15;
+    R0 = I0;
+    DM (-11,I6) = R0;
+    R0 = I1;
+    DM (-12,I6) = R0;
+    R0 = I2;
+    DM (-13,I6) = R0;
+    R0 = I3;
+    DM (-14,I6) = R0;
+    R0 = I4;
+    DM (-15,I6) = R0;
+    R0 = I5;
+    DM (-16,I6) = R0;
+    R0 = M4;
+    DM (-17,I6) = R0;
+    R0 = M0;
+    DM (-18,I6) = R0;
+    R0 = M1;
+    DM (-19,I6) = R0;
+    R0 = M2;
+    DM (-20,I6) = R0;
+    R0 = M3;
+    DM (-21,I6) = R0;
+    R0 = MR0F;
+    DM (-22,I6) = R0;
+    R0 = MR1F;
+    DM (-23,I6) = R0;
+    R0 = MR2F;
+    DM (-24,I6) = R0;
+    DM (-28,I6) = R8;
+    R0 = L0;
+    DM (-46,I6) = R0;
+    R0 = L1;
+    DM (-47,I6) = R0;
+    R0 = L2;
+    DM (-48,I6) = R0;
+    R0 = L3;
+    DM (-49,I6) = R0;
+    R0 = L4;
+    DM (-50,I6) = R0;
+    R0 = L5;
+    DM (-51,I6) = R0;
+    R0 = 0;
+    L0 = R0;
+    L1 = R0;
+    L2 = R0;
+    L3 = R0;
+    L4 = R0;
+    L5 = R0;
+    I0 = R4;
+    R14 = 0x7FFFFF;
+    R15 = 0xFF800000;
+    R13 = @SRC@;
+    DM (-39,I6) = R13;
+
+/* ---- guards: nothing is written before these pass ---------------------- */
+    R0 = DM (1709,I0);                  /* virtual voice */
+    R1 = 16;
+    COMPU (R0,R1);
+    IF GE JUMP .L_decline;
+    R1 = 0x600;
+    R9 = R0 * R1 (SSI);
+    R1 = 0x135600;
+    R9 = R9 + R1;                       /* R9: the voice's external window */
+    DM (-29,I6) = R9;
+    R0 = DM (2,I0);                     /* Y2, Y6 >= 0: table indices in range */
+    R0 = PASS R0;
+    IF LT JUMP .L_decline;
+    R0 = DM (17,I0);                    /* phase Y11: +-128 inside the source */
+    R1 = 0x13B680;
+    R0 = R0 - R1;
+    R1 = 0xC8FE;
+    COMPU (R0,R1);
+    IF GE JUMP .L_decline;
+    R7 = 0x1FF;
+    R6 = 0x600;
+    /* each pointer Y14..Y16 in its own line of the voice's window, the read
+     * start (offset + Y(17+i)) within one wrap; slot -33-i: read start, -30-i:
+     * line base */
+    R0 = DM (20,I0);
+    R0 = FEXT R0 BY 0:24;
+    R1 = R0 - R9;
+    COMPU (R1,R6);
+    IF GE JUMP .L_decline;
+    R1 = R0 AND R7;
+    R10 = R0 - R1;
+    DM (-30,I6) = R10;
+    R2 = DM (23,I0);
+    R2 = R1 + R2;
+    R3 = 0x200;
+    R4 = R2 + R3;
+    COMPU (R4,R6);
+    IF GE JUMP .L_decline;
+    R2 = R2 AND R7;
+    DM (-33,I6) = R2;
+    R0 = DM (21,I0);
+    R0 = FEXT R0 BY 0:24;
+    R1 = R0 - R9;
+    COMPU (R1,R6);
+    IF GE JUMP .L_decline;
+    R1 = R0 AND R7;
+    R11 = R0 - R1;
+    DM (-31,I6) = R11;
+    R2 = DM (24,I0);
+    R2 = R1 + R2;
+    R4 = R2 + R3;
+    COMPU (R4,R6);
+    IF GE JUMP .L_decline;
+    R2 = R2 AND R7;
+    DM (-34,I6) = R2;
+    R0 = DM (22,I0);
+    R0 = FEXT R0 BY 0:24;
+    R1 = R0 - R9;
+    COMPU (R1,R6);
+    IF GE JUMP .L_decline;
+    R1 = R0 AND R7;
+    R13 = R0 - R1;
+    DM (-32,I6) = R13;
+    R2 = DM (25,I0);
+    R2 = R1 + R2;
+    R4 = R2 + R3;
+    COMPU (R4,R6);
+    IF GE JUMP .L_decline;
+    R2 = R2 AND R7;
+    DM (-35,I6) = R2;
+    COMP (R10,R11);
+    IF EQ JUMP .L_decline;
+    COMP (R10,R13);
+    IF EQ JUMP .L_decline;
+    COMP (R11,R13);
+    IF EQ JUMP .L_decline;
+    R13 = DM (-39,I6);
+
+/* ---- S1 envelope Y13, pitch ($142145-$142154) ------------------------- */
+    R0 = DM (19,I0);                    /* x0 = Y13 */
+    R1 = 0x7C28F600;
+    R2 = R0 * R1 (SSF);
+    DM (19,I0) = R2;
+    R1 = DM (5,I0);
+    R1 = LSHIFT R1 BY 8;
+    R1 = R1 * R0 (SSF);
+    R2 = 0x400000;
+    R1 = R1 + R2;
+    R1 = MIN(R1,R14);
+    R0 = MAX(R1,R15);                   /* y0 = lim(2*Y5*Y13 + 0.5) */
+    R1 = DM (1,I0);
+    R4 = LSHIFT R0 BY 8;
+    R5 = LSHIFT R1 BY 3;
+    R6 = R4 * R5 (SSF);                 /* D = floor(y0*Y1/2^20) */
+    R5 = LSHIFT R1 BY 1;
+    R7 = R4 * R5 (SSF);
+    R7 = MIN(R7,R14);
+    R7 = MAX(R7,R15);
+    R0 = md_shared_scratch_y.;
+    I2 = R0;
+    DM (254,I2) = R7;                   /* y:$fe */
+
+/* ---- S2/S3 phase ramp and interpolation ($142155-$142181) -------------
+ * b(k) = P + (k+1)D, P = Y11:Y10: x:k = hi, y:k = lo, y:$20+k = $ffffff-lo;
+ * x:$40+k = lim(2*s0*($ffffff-lo) + 2*s1*lo); clamp at $142859 */
+    R8 = DM (17,I0);
+    R10 = DM (16,I0);
+    R10 = LSHIFT R10 BY 8;
+    R7 = -24;
+    R11 = ASHIFT R6 BY R7;
+    R12 = LSHIFT R6 BY 8;
+    R7 = -8;
+    R0 = md_shared_scratch_y.;
+    R1 = -1;
+    DM (64,I2) = R1;                    /* y:$40 */
+    I2 = R0;
+    R1 = 0x80;
+    R0 = R0 + R1;
+    I3 = R0;                            /* y:$20 */
+    R0 = md_shared_scratch_x.;
+    I1 = R0;
+    R1 = 0x100;
+    R0 = R0 + R1;
+    I5 = R0;                            /* x:$40 */
+    LCNTR = 0x20 , DO (PC,.L_interp_end)UNTIL LCE;
+    R10 = R10 + R12;
+    R8 = R8 + R11 + CI;
+    DM (I1,M6) = R8;
+    R0 = LSHIFT R8 BY 2;
+    R0 = R0 + R13;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R2 = DM (1,I4);
+    R1 = LSHIFT R1 BY 8;                /* s0 << 8 */
+    R2 = LSHIFT R2 BY 8;                /* s1 << 8 */
+    /* the weights lo and $ffffff - lo (24 bits, unsigned) as 2*(w >> 1) +
+     * (w & 1): products of 24-bit words, the translator's form (mulforms.py) */
+    R3 = LSHIFT R10 BY -9;              /* lo >> 1 */
+    R5 = FEXT R10 BY 8:1;               /* lo & 1 */
+    R4 = NOT R10;
+    R6 = FEXT R4 BY 8:1;
+    R4 = LSHIFT R4 BY -9;               /* ($ffffff - lo) >> 1 */
+    MRF = R1 * R4 (SSF);
+    MRF = MRF + R1 * R4 (SSF);
+    MRF = MRF + R1 * R6 (SSF);
+    MRF = MRF + R2 * R3 (SSF);
+    MRF = MRF + R2 * R3 (SSF);
+    MRF = MRF + R2 * R5 (SSF);
+    R5 = ASHIFT R10 BY R7;
+    R6 = NOT R10 , DM (I2,M6) = R5;
+    R6 = ASHIFT R6 BY R7;
+    R5 = MR1F , DM (I3,M6) = R6;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+.L_interp_end:
+    DM (I5,M6) = R5;
+    R4 = 0x142859;
+    COMP (R8,R4);
+    IF GE R10 = R10 - R10;
+    IF GE R8 = PASS R4;
+    R2 = ASHIFT R10 BY R7;
+    DM (16,I0) = R2;
+    DM (17,I0) = R8;
+    R0 = md_shared_scratch_x.;
+    I1 = R0;
+    R0 = DM (32,I1);
+    R0 = FEXT R0 BY 0:24;
+    NOP;
+    NOP;
+    /* (inlined .L_xprobe) */
+    R1 = 0x800;
+    R1 = R0 - R1;
+    R2 = 0x400;
+    COMPU (R1,R2);
+    IF GE JUMP .L_xprobe_ret_i1;
+    R2 = DM (1709,I0);
+    R2 = LSHIFT R2 BY 6;
+    R1 = R1 - R2;
+    R2 = 64;
+    COMPU (R1,R2);
+    IF LT JUMP .L_xprobe_ret_i1;
+    R1 = 1;
+    DM (108,I0) = R1;
+    JUMP .L_xprobe_ret_i1;
+.L_xprobe_ret_i1:
+    JUMP .L_s4;
+    /* R0: an x address read for nothing (a parallel-move read, which reads
+     * peripheral space >= $ffff80 as 0): fault iff in $800-$bff outside the
+     * voice's own private window */
+
+/* ---- S4 tables ($142182-$14218f) ---------------------------------------- */
+.L_s4:
+    R1 = DM (2,I0);
+    R3 = 0x4200;
+    R1 = R1 * R3 (SSF);                 /* n0 = floor(2*$42*Y2/2^24) <= $41 */
+    R3 = 0x142B49;
+    R1 = R1 + R3;
+    R1 = LSHIFT R1 BY 2;
+    R1 = R1 + R13;
+    I4 = R1;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R3 = ASHIFT R1 BY R7;
+    DM (0xFB,I1) = R3;
+    R3 = 0x5A827A;
+    R3 = R1 * R3 (SSF);
+    DM (0xFC,I1) = R3;
+
+/* ---- S5/S6 oscillator lowpass (Y4) and the three delay-line lowpasses
+ * (Y6): x:$40+k = x:$60+k = lim(a); x:$80/$a0/$c0+k ($142191-$1421ca) ---- */
+    R0 = DM (4,I0);
+    R11 = LSHIFT R0 BY 8;               /* Y4 << 8 */
+    R0 = DM (6,I0);
+    R12 = LSHIFT R0 BY 8;               /* Y6 << 8 */
+    R9 = DM (-29,I6);
+    R0 = DM (-30,I6);                   /* line base -> external word index */
+    R0 = R0 - R9;
+    R1 = 173;
+    R0 = R0 + R1;
+    R0 = LSHIFT R0 BY 2;
+    R1 = I0;
+    R0 = R0 + R1;
+    I4 = R0;
+    R10 = DM (-33,I6);                  /* read offset */
+    R7 = 0x1FF;
+    R0 = md_shared_scratch_x.;
+    R1 = 0x100;
+    R0 = R0 + R1;
+    I2 = R0;                            /* x:$40 */
+    R1 = 0x80;
+    R0 = R0 + R1;
+    I1 = R0;                            /* x:$60 */
+    R0 = R0 + R1;
+    I3 = R0;                            /* x:$80 */
+    /* the two lowpasses one after the other, each in MRF (no background
+     * accumulator, and k*(x - lim(a)) as two products of 24-bit words:
+     * mulforms.py) */
+    R0 = DM (18,I0);
+    MR1F = R0;
+    R0 = 0;
+    MR0F = R0;
+    LCNTR = 0x20 , DO (PC,.L_s5a_end)UNTIL LCE;
+    R0 = MR1F;
+    R0 = MIN(R0,R14) , R1 = DM (0,I2);
+    R0 = MAX(R0,R15);
+    MRF = MRF + R11 * R1 (SSF) , DM (I1,M6) = R0;
+.L_s5a_end:
+    MRF = MRF - R11 * R0 (SSF) , DM (I2,M6) = R0;
+    R0 = MR1F;
+    R0 = MIN(R0,R14);
+    R0 = MAX(R0,R15);
+    DM (18,I0) = R0;                    /* Y12 */
+    R0 = DM (29,I0);
+    MR1F = R0;
+    R0 = 0;
+    MR0F = R0;
+    LCNTR = 0x20 , DO (PC,.L_s5_end)UNTIL LCE;
+    R2 = MR1F , M4 = R10;
+    R2 = MIN(R2,R14) , R5 = DM (M4,I4);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R12 * R5 (SSF) , DM (I3,M6) = R2;
+    MRF = MRF - R12 * R2 (SSF);
+    R10 = R10 + 1;
+.L_s5_end:
+    R10 = R10 AND R7;
+    R0 = MR1F;
+    R0 = MIN(R0,R14);
+    R0 = MAX(R0,R15);
+    DM (29,I0) = R0;                    /* Y1d */
+    /* lines 2 and 3 */
+    R8 = 30;                            /* state word Y1e, then Y1f */
+    R0 = md_shared_scratch_x.;
+    R1 = 0x280;
+    R0 = R0 + R1;
+    I3 = R0;                            /* x:$a0, then x:$c0 */
+    R0 = DM (-31,I6);
+    R6 = DM (-34,I6);
+    NOP;
+    NOP;
+    /* (inlined .L_dlp) */
+    R0 = R0 - R9;
+    R1 = 173;
+    R0 = R0 + R1;
+    R0 = LSHIFT R0 BY 2;
+    R1 = I0;
+    R0 = R0 + R1;
+    I4 = R0;
+    M4 = R8;
+    R0 = DM (M4,I0);
+    MR1F = R0;
+    R0 = 0;
+    MR0F = R0;
+    LCNTR = 0x20 , DO (PC,.L_dlp_end_i2)UNTIL LCE;
+    R2 = MR1F , M4 = R6;
+    R2 = MIN(R2,R14) , R5 = DM (M4,I4);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R12 * R5 (SSF) , DM (I3,M6) = R2;
+    MRF = MRF - R12 * R2 (SSF);
+    R6 = R6 + 1;
+.L_dlp_end_i2:
+    R6 = R6 AND R7;
+    R0 = MR1F;
+    R0 = MIN(R0,R14);
+    R0 = MAX(R0,R15);
+    M4 = R8;
+    DM (M4,I0) = R0;
+    JUMP .L_dlp_ret_i2;
+.L_dlp_ret_i2:
+    R8 = 31;
+    R0 = DM (-32,I6);
+    R6 = DM (-35,I6);
+    NOP;
+    NOP;
+    /* (inlined .L_dlp) */
+    R0 = R0 - R9;
+    R1 = 173;
+    R0 = R0 + R1;
+    R0 = LSHIFT R0 BY 2;
+    R1 = I0;
+    R0 = R0 + R1;
+    I4 = R0;
+    M4 = R8;
+    R0 = DM (M4,I0);
+    MR1F = R0;
+    R0 = 0;
+    MR0F = R0;
+    LCNTR = 0x20 , DO (PC,.L_dlp_end_i3)UNTIL LCE;
+    R2 = MR1F , M4 = R6;
+    R2 = MIN(R2,R14) , R5 = DM (M4,I4);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R12 * R5 (SSF) , DM (I3,M6) = R2;
+    MRF = MRF - R12 * R2 (SSF);
+    R6 = R6 + 1;
+.L_dlp_end_i3:
+    R6 = R6 AND R7;
+    R0 = MR1F;
+    R0 = MIN(R0,R14);
+    R0 = MAX(R0,R15);
+    M4 = R8;
+    DM (M4,I0) = R0;
+    JUMP .L_dlp_ret_i3;
+.L_dlp_ret_i3:
+    JUMP .L_s7;
+    /* a delay-line lowpass: R0 line base, R6 read offset, R8 state word,
+     * I3 output; coefficient R12 */
+
+/* ---- S7 junction ($1421cd-$1421fd), written straight into the lines ----
+ * o = x:$60+k, d1..d3 = x:$80/$a0/$c0+k, c = $051eb8:
+ *   line 3 <- lim(2*o*c + 2*x:$fb*d1)
+ *   line 2 <- lim(2*o*c + 2*x:$fc*(d2+d3))
+ *   line 1 <- lim(2*o*c + 2*x:$fc*(d3-d2)) */
+.L_s7:
+    R0 = md_shared_scratch_x.;
+    R1 = 0x3EC;
+    R1 = R1 + R0;
+    I1 = R1;
+    R8 = DM (0,I1);
+    R8 = LSHIFT R8 BY 8;                /* x:$fb << 8 */
+    R9 = DM (1,I1);
+    R9 = LSHIFT R9 BY 8;                /* x:$fc << 8 */
+    R10 = 0x051EB800;
+    R1 = 0x180;
+    R0 = R0 + R1;
+    I1 = R0;                            /* x:$60 */
+    M0 = 32;
+    M1 = 64;
+    M2 = 96;
+    R0 = md_shared_scratch_y.;
+    I2 = R0;
+    R1 = 0x100;
+    DM (255,I2) = R1;                   /* y:$ff = r7 */
+    R6 = DM (-29,I6);
+    R7 = 0x1FF;
+    R0 = DM (-30,I6);
+    R0 = R0 - R6;
+    R1 = 173;
+    R0 = R0 + R1;
+    R0 = LSHIFT R0 BY 2;
+    R1 = I0;
+    R0 = R0 + R1;
+    I4 = R0;                            /* line 1 */
+    R0 = DM (-31,I6);
+    R0 = R0 - R6;
+    R1 = 173;
+    R0 = R0 + R1;
+    R0 = LSHIFT R0 BY 2;
+    R1 = I0;
+    R0 = R0 + R1;
+    I5 = R0;                            /* line 2 */
+    R0 = DM (-32,I6);
+    R0 = R0 - R6;
+    R1 = 173;
+    R0 = R0 + R1;
+    R0 = LSHIFT R0 BY 2;
+    R1 = I0;
+    R0 = R0 + R1;
+    I3 = R0;                            /* line 3 */
+    R11 = DM (20,I0);                   /* write offsets: the pointers */
+    R11 = R11 AND R7;
+    R12 = DM (21,I0);
+    R12 = R12 AND R7;
+    R13 = DM (22,I0);
+    R13 = R13 AND R7;
+    LCNTR = 0x20 , DO (PC,.L_s7_end)UNTIL LCE;
+    R1 = DM (M0,I1);                    /* d1 */
+    R2 = DM (M1,I1);                    /* d2 */
+    R3 = DM (M2,I1);                    /* d3 */
+    R0 = DM (I1,M6);                    /* o */
+    MRF = R10 * R0 (SSF);
+    MRF = MRF + R8 * R1 (SSF);
+    R4 = MR1F , M4 = R13;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (M4,I3) = R4;                    /* line 3 */
+    MRF = R10 * R0 (SSF);
+    MRF = MRF + R9 * R2 (SSF);
+    MRF = MRF + R9 * R3 (SSF);
+    R4 = MR1F , M4 = R12;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (M4,I5) = R4;                    /* line 2 */
+    MRF = R10 * R0 (SSF);
+    MRF = MRF + R9 * R3 (SSF);
+    MRF = MRF - R9 * R2 (SSF);
+    R5 = MR1F , M4 = R11;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (M4,I4) = R5;                    /* line 1 */
+    R11 = R11 + 1;
+    R11 = R11 AND R7;
+    R12 = R12 + 1;
+    R12 = R12 AND R7;
+    R13 = R13 + 1;
+.L_s7_end:
+    R13 = R13 AND R7;
+    R0 = DM (-30,I6);
+    R0 = R0 + R11;
+    DM (20,I0) = R0;
+    R0 = DM (-31,I6);
+    R0 = R0 + R12;
+    DM (21,I0) = R0;
+    R0 = DM (-32,I6);
+    R0 = R0 + R13;
+    DM (22,I0) = R0;
+
+/* ---- S8 body ($1421ff-$142214): x:$40+k = lim(4*(x:$40+k + v));
+ * v = lim(b), S = d3 - d2 + d1, b = 2*Y1c*v + (lim(S) - y0)/2, y0 = lim(S) */
+    R0 = md_shared_scratch_x.;
+    R1 = 0x100;
+    R0 = R0 + R1;
+    I1 = R0;                            /* x:$40 */
+    M0 = 64;
+    M1 = 96;
+    M2 = 128;
+    R0 = DM (32,I0);                    /* Y20 */
+    MR1F = R0;
+    R0 = 0;
+    MR0F = R0;
+    R9 = DM (33,I0);                    /* Y21: y0 */
+    R10 = DM (28,I0);
+    R10 = LSHIFT R10 BY 8;              /* Y1c << 8 */
+    R11 = -1;
+    LCNTR = 0x20 , DO (PC,.L_s8_end)UNTIL LCE;
+    R1 = DM (M0,I1);                    /* d1 */
+    R2 = DM (M1,I1);                    /* d2 */
+    R3 = DM (M2,I1);                    /* d3 */
+    R3 = R3 - R2 , R0 = DM (0,I1);
+    R3 = R3 + R1;                       /* S */
+    R3 = MIN(R3,R14);
+    R3 = MAX(R3,R15);                   /* lim(S) */
+    R2 = R3 - R9;
+    R9 = PASS R3;
+    R8 = MR1F;
+    R8 = MIN(R8,R14);
+    R8 = MAX(R8,R15);                   /* v */
+    R1 = ASHIFT R2 BY R11;
+    MR1F = R1;
+    R1 = LSHIFT R2 BY 31;
+    MR0F = R1;                          /* MR = (lim(S) - y0) * 2^23 (<< 8) */
+    MRF = MRF + R10 * R8 (SSF);
+    R0 = R0 + R8;
+    R0 = R0 + R0;
+    R0 = R0 + R0;
+    R0 = MIN(R0,R14);
+    R0 = MAX(R0,R15);
+.L_s8_end:
+    DM (I1,M6) = R0;
+    DM (33,I0) = R9;
+    R0 = MR1F;
+    R0 = MIN(R0,R14);
+    R0 = MAX(R0,R15);
+    DM (32,I0) = R0;
+
+/* ---- S10 tuning y:$b4+i = lim(2*T(i)*y:$fe), T at y:$142279; S11 cosine */
+    R0 = md_shared_scratch_y.;
+    I2 = R0;
+    R8 = DM (254,I2);                   /* y:$fe */
+    R12 = 0x15555500;
+    R13 = 0x7FFFFF;
+    R1 = 0x01785700;
+    R0 = R8 * R1 (SSF);
+    DM (180,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (160,I2) = R5;
+    R1 = 0x0258D300;
+    R0 = R8 * R1 (SSF);
+    DM (181,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (161,I2) = R5;
+    R1 = 0x03394F00;
+    R0 = R8 * R1 (SSF);
+    DM (182,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (162,I2) = R5;
+    R1 = 0x042D9900;
+    R0 = R8 * R1 (SSF);
+    DM (183,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (163,I2) = R5;
+    R1 = 0x05922200;
+    R0 = R8 * R1 (SSF);
+    DM (184,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (164,I2) = R5;
+    R1 = 0x06729E00;
+    R0 = R8 * R1 (SSF);
+    DM (185,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (165,I2) = R5;
+    R1 = 0x07A8EF00;
+    R0 = R8 * R1 (SSF);
+    DM (186,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (166,I2) = R5;
+    R1 = 0x0882D000;
+    R0 = R8 * R1 (SSF);
+    DM (187,I2) = R0;
+    R1 = -R0;
+    R2 = LSHIFT R0 BY 8;
+    MRF = R2 * R1 (SSF);                /* -2q^2 */
+    R3 = MR1F;                          /* yq */
+    R4 = R3 * R12 (SSF);
+    R3 = LSHIFT R3 BY 8;
+    MRF = MRF + R3 * R4 (SSF);
+    R5 = MR1F;
+    R5 = R5 + R13;
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (167,I2) = R5;
+/* ---- S12 mode coefficients y:$64+4i+0..2; indices x:$142281.., gains x:$142289.. */
+    R9 = DM (2,I0);                     /* Y2 >= 0 */
+    R10 = 0x800000;
+    R11 = 0x142949;
+    R7 = -8;
+    R1 = 0x0001FF00;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (160,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (101,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (100,I2) = R5;
+    R5 = 0xC0000000;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (102,I2) = R5;
+    R1 = 0x00005000;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (161,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (105,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (104,I2) = R5;
+    R5 = 0x8020C500;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (106,I2) = R5;
+    R1 = 0x00002B00;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (162,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (109,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (108,I2) = R5;
+    R5 = 0xFF3B6400;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (110,I2) = R5;
+    R1 = 0x00003900;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (163,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (113,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (112,I2) = R5;
+    R5 = 0xFD70A400;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (114,I2) = R5;
+    R1 = 0x0001FF00;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (164,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (117,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (116,I2) = R5;
+    R5 = 0xFF3B6400;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (118,I2) = R5;
+    R1 = 0x0001FF00;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (165,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (121,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (120,I2) = R5;
+    R5 = 0xFF3B6400;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (122,I2) = R5;
+    R1 = 0x0001FF00;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (166,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (125,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (124,I2) = R5;
+    R5 = 0xFF3B6400;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (126,I2) = R5;
+    R1 = 0x0001FF00;
+    R0 = R9 * R1 (SSF);                /* n0 */
+    R0 = R0 + R11;
+    R0 = LSHIFT R0 BY 2;
+    R1 = DM (-39,I6);
+    R0 = R0 + R1;
+    I4 = R0;
+    R1 = DM (0,I4);
+    R1 = LSHIFT R1 BY 8;                /* x1 << 8 */
+    R2 = ASHIFT R1 BY R7;               /* x1 */
+    R3 = DM (167,I2);
+    MRF = R1 * R3 (SSF);
+    MRF = MRF + R1 * R3 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    DM (129,I2) = R4;
+    MRF = MRF - R1 * R2 (SSF);
+    R4 = MR1F;
+    R4 = R4 - R10;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);                   /* lim(a) */
+    R5 = -R2;
+    R5 = R1 * R5 (SSF);                /* -2*x1^2 */
+    DM (128,I2) = R5;
+    R5 = 0xFF3B6400;
+    R4 = LSHIFT R4 BY 1;
+    R5 = R5 * R4 (SSF);
+    R5 = MIN(R5,R14);
+    R5 = MAX(R5,R15);
+    DM (130,I2) = R5;
+
+/* ---- S13 modal bank ($14224e-$14226e) ------------------------------------
+ * 8 modes i: state Y(r6+$22+3i) = lim(a1), Y(+1) = a0, Y(+2) = x1;
+ * coefficients c0..c2 = y:$64+4i..: per sample
+ * a += 2*x1*c0 + 2*lim(a)*c1 + 2*x(k)*c2, then x1 = lim(a) from before,
+ * x(k) = x:$60+k. The modes sum in order into x:$40+k (s = lim(s + floor(a)))
+ * and the block.
+ * Pass 1, SIMD: modes 2j (PEx) and 2j+1 (PEy), x(k) broadcast; floor(a) of
+ * sample k to @TMP@[8k + 2j], [8k + 2j + 1]. Pass 2, SISD: the sums. */
+    R14 = 0x7FFFFF;
+    S14 = R14;
+    S15 = R15;
+    R7 = -8;
+    S7 = R7;
+    R0 = md_shared_scratch_y.;
+    R1 = 0x190;
+    R0 = R0 + R1;
+    I5 = R0;                            /* y:$64 */
+    R0 = 0x88;
+    R1 = I0;
+    R0 = R0 + R1;
+    I4 = R0;                            /* voice word 34 = Y(r6+$22) */
+    R0 = @TMP@;
+    DM (-40,I6) = R0;
+    M4 = 8;
+    LCNTR = 4 , DO (PC,.L_pair_end)UNTIL LCE;
+    R0 = DM (0,I5);
+    R9 = LSHIFT R0 BY 8;                /* c0 << 8 */
+    R0 = DM (1,I5);
+    R10 = LSHIFT R0 BY 8;               /* c1 << 8 */
+    R0 = DM (2,I5);
+    R11 = LSHIFT R0 BY 8;               /* c2 << 8 */
+    R0 = DM (4,I5);
+    R0 = LSHIFT R0 BY 8;
+    S9 = R0;
+    R0 = DM (5,I5);
+    R0 = LSHIFT R0 BY 8;
+    S10 = R0;
+    R0 = DM (6,I5);
+    R0 = LSHIFT R0 BY 8;
+    S11 = R0;
+    R0 = DM (0,I4);                     /* a1 */
+    S0 = DM (3,I4);
+    R1 = DM (1,I4);                     /* a0 */
+    R1 = LSHIFT R1 BY 8;
+    R2 = DM (4,I4);
+    R2 = LSHIFT R2 BY 8;
+    S1 = R2;
+    R2 = DM (2,I4);                     /* x1 */
+    S2 = DM (5,I4);
+    R3 = md_shared_scratch_x.;
+    R4 = 0x180;
+    R3 = R3 + R4;
+    I1 = R3;                            /* x:$60, broadcast */
+    R3 = DM (-40,I6);
+    I3 = R3;                            /* @TMP@ + 2j */
+    R4 = 8;
+    R3 = R3 + R4;
+    DM (-40,I6) = R3;
+    /* (was SIMD) PEx pass */
+    DM (-41,I6) = I1;
+    DM (-42,I6) = I3;
+    MR0F = R1;
+    MR1F = R0;
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R2 (SSF);
+    R1 = MIN(R0,R14);
+    R1 = MAX(R1,R15);
+    MRF = MRF + R10 * R1 (SSF);
+    MRF = MRF + R11 * R3 (SSF);
+    LCNTR = 0xF , DO (PC,.L_res_end)UNTIL LCE;
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R1 (SSF) , DM (I3,M4) = R0;
+    R2 = MIN(R0,R14);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R10 * R2 (SSF);
+    MRF = MRF + R11 * R3 (SSF);
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R2 (SSF) , DM (I3,M4) = R0;
+    R1 = MIN(R0,R14);
+    R1 = MAX(R1,R15);
+    MRF = MRF + R10 * R1 (SSF);
+.L_res_end:
+    MRF = MRF + R11 * R3 (SSF);
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R1 (SSF) , DM (I3,M4) = R0;
+    R2 = MIN(R0,R14);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R10 * R2 (SSF);
+    MRF = MRF + R11 * R3 (SSF);
+    R0 = MR1F;
+    DM (I3,M4) = R0;                    /* floor(a) of k = 31 */
+    R5 = MR0F;
+    R5 = ASHIFT R5 BY R7;               /* a0 */
+    R1 = MIN(R0,R14);
+    R1 = MAX(R1,R15);                   /* lim(a1) */
+    R0 <-> S0;
+    R1 <-> S1;
+    R2 <-> S2;
+    R3 <-> S3;
+    R4 <-> S4;
+    R5 <-> S5;
+    R6 <-> S6;
+    R7 <-> S7;
+    R8 <-> S8;
+    R9 <-> S9;
+    R10 <-> S10;
+    R11 <-> S11;
+    R12 <-> S12;
+    R13 <-> S13;
+    R14 <-> S14;
+    R15 <-> S15;
+    /* PEy pass */
+    I1 = DM (-41,I6);
+    I3 = DM (-42,I6);
+    I3=MODIFY (I3,0x1)(NW);
+    MR0F = R1;
+    MR1F = R0;
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R2 (SSF);
+    R1 = MIN(R0,R14);
+    R1 = MAX(R1,R15);
+    MRF = MRF + R10 * R1 (SSF);
+    MRF = MRF + R11 * R3 (SSF);
+    LCNTR = 0xF , DO (PC,.L_res_end_y)UNTIL LCE;
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R1 (SSF) , DM (I3,M4) = R0;
+    R2 = MIN(R0,R14);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R10 * R2 (SSF);
+    MRF = MRF + R11 * R3 (SSF);
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R2 (SSF) , DM (I3,M4) = R0;
+    R1 = MIN(R0,R14);
+    R1 = MAX(R1,R15);
+    MRF = MRF + R10 * R1 (SSF);
+.L_res_end_y:
+    MRF = MRF + R11 * R3 (SSF);
+    R0 = MR1F , R3 = DM (I1,M6);
+    MRF = MRF + R9 * R1 (SSF) , DM (I3,M4) = R0;
+    R2 = MIN(R0,R14);
+    R2 = MAX(R2,R15);
+    MRF = MRF + R10 * R2 (SSF);
+    MRF = MRF + R11 * R3 (SSF);
+    R0 = MR1F;
+    DM (I3,M4) = R0;                    /* floor(a) of k = 31 */
+    R5 = MR0F;
+    R5 = ASHIFT R5 BY R7;               /* a0 */
+    R1 = MIN(R0,R14);
+    R1 = MAX(R1,R15);                   /* lim(a1) */
+    R0 <-> S0;
+    R1 <-> S1;
+    R2 <-> S2;
+    R3 <-> S3;
+    R4 <-> S4;
+    R5 <-> S5;
+    R6 <-> S6;
+    R7 <-> S7;
+    R8 <-> S8;
+    R9 <-> S9;
+    R10 <-> S10;
+    R11 <-> S11;
+    R12 <-> S12;
+    R13 <-> S13;
+    R14 <-> S14;
+    R15 <-> S15;
+    I3=MODIFY (I3,-0x1)(NW);
+    DM (0,I4) = R1;
+    DM (3,I4) = S1;
+    DM (1,I4) = R5;
+    DM (4,I4) = S5;
+    DM (2,I4) = R2;
+    DM (5,I4) = S2;
+    I5=MODIFY (I5,0x8)(NW);
+.L_pair_end:
+    I4=MODIFY (I4,0x6)(NW);
+    /* pass 2: per sample, s = lim(s + floor(a_i)), i = 0..7 -> x:$40+k, block */
+    R0 = md_shared_scratch_x.;
+    R1 = 0x100;
+    R1 = R1 + R0;
+    I2 = R1;                            /* x:$40 */
+    R0 = 0x100;
+    R1 = I0;
+    R0 = R0 + R1;
+    I4 = R0;                            /* voice word 64: blk44 */
+    R0 = @TMP@;
+    I3 = R0;
+    LCNTR = 0x20 , DO (PC,.L_sum_end)UNTIL LCE;
+    R4 = DM (0,I2);
+    R5 = DM (0,I3);
+    R4 = R4 + R5 , R5 = DM (1,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5 , R5 = DM (2,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5 , R5 = DM (3,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5 , R5 = DM (4,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5 , R5 = DM (5,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5 , R5 = DM (6,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5 , R5 = DM (7,I3);
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    R4 = R4 + R5;
+    R4 = MIN(R4,R14);
+    R4 = MAX(R4,R15);
+    I3=MODIFY (I3,0x8)(NW);
+    DM (I4,M6) = R4;
+.L_sum_end:
+    DM (I2,M6) = R4;
+    R0 = md_shared_scratch_y.;
+    I1 = R0;
+    R0 = DM (32,I1);
+    R0 = FEXT R0 BY 0:24;
+    R1 = md_shared_y20.;
+    I1 = R1;
+    DM (0,I1) = R0;
+    JUMP .L_exit;
+.L_decline:
+    /* tail call: the C reference render runs in this render's place, in
+     * its caller's frame (not nested under this one: the audio stack is
+     * 509 words) */
+    R4 = I0;
+    R0 = DM (-11,I6);
+    I0 = R0;
+    R0 = DM (-12,I6);
+    I1 = R0;
+    R0 = DM (-13,I6);
+    I2 = R0;
+    R0 = DM (-14,I6);
+    I3 = R0;
+    R0 = DM (-15,I6);
+    I4 = R0;
+    R0 = DM (-16,I6);
+    I5 = R0;
+    R0 = DM (-17,I6);
+    M4 = R0;
+    R0 = DM (-18,I6);
+    M0 = R0;
+    R0 = DM (-19,I6);
+    M1 = R0;
+    R0 = DM (-20,I6);
+    M2 = R0;
+    R0 = DM (-21,I6);
+    M3 = R0;
+    R0 = DM (-23,I6);
+    MR1F = R0;
+    R0 = DM (-24,I6);
+    MR2F = R0;
+    R0 = DM (-22,I6);
+    MR0F = R0;
+    R0 = DM (-46,I6);
+    L0 = R0;
+    R0 = DM (-47,I6);
+    L1 = R0;
+    R0 = DM (-48,I6);
+    L2 = R0;
+    R0 = DM (-49,I6);
+    L3 = R0;
+    R0 = DM (-50,I6);
+    L4 = R0;
+    R0 = DM (-51,I6);
+    L5 = R0;
+    R8 = DM (-3,I6);
+    R9 = DM (-4,I6);
+    R10 = DM (-5,I6);
+    R11 = DM (-6,I6);
+    R12 = DM (-7,I6);
+    R13 = DM (-8,I6);
+    R14 = DM (-9,I6);
+    R15 = DM (-10,I6);
+    I7=MODIFY (I7,0x34)(NW);
+    JUMP pibd_render_block_44k1_c.;
+.L_exit:
+    R0 = DM (-11,I6);
+    I0 = R0;
+    R0 = DM (-12,I6);
+    I1 = R0;
+    R0 = DM (-13,I6);
+    I2 = R0;
+    R0 = DM (-14,I6);
+    I3 = R0;
+    R0 = DM (-15,I6);
+    I4 = R0;
+    R0 = DM (-16,I6);
+    I5 = R0;
+    R0 = DM (-17,I6);
+    M4 = R0;
+    R0 = DM (-18,I6);
+    M0 = R0;
+    R0 = DM (-19,I6);
+    M1 = R0;
+    R0 = DM (-20,I6);
+    M2 = R0;
+    R0 = DM (-21,I6);
+    M3 = R0;
+    R0 = DM (-23,I6);
+    MR1F = R0;
+    R0 = DM (-24,I6);
+    MR2F = R0;
+    R0 = DM (-22,I6);
+    MR0F = R0;
+    R0 = DM (-46,I6);
+    L0 = R0;
+    R0 = DM (-47,I6);
+    L1 = R0;
+    R0 = DM (-48,I6);
+    L2 = R0;
+    R0 = DM (-49,I6);
+    L3 = R0;
+    R0 = DM (-50,I6);
+    L4 = R0;
+    R0 = DM (-51,I6);
+    L5 = R0;
+    R8 = DM (-3,I6);
+    R9 = DM (-4,I6);
+    R10 = DM (-5,I6);
+    R11 = DM (-6,I6);
+    R12 = DM (-7,I6);
+    R13 = DM (-8,I6);
+    R14 = DM (-9,I6);
+    R15 = DM (-10,I6);
+    I12=DM (M7,I6);
+    JUMP (M14,I12) (DB);
+    RFRAME;
+    NOP;
+.ENDSEG;

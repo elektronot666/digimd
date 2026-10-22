@@ -1,0 +1,5866 @@
+{
+  "schema": "digimd.machines.registry.v1",
+  "inventory": "data/machine_inventory.json",
+  "inventory_sha256": "242401aa5bd7d318de9e19516cc9f7974c7e99de0d1aa67d2defab1f1199484d",
+  "stock_selectors": [
+    {
+      "selector": 0,
+      "name": "FM Tone",
+      "kind": "synth"
+    },
+    {
+      "selector": 1,
+      "name": "WaveTone",
+      "kind": "synth"
+    },
+    {
+      "selector": 2,
+      "name": "FM Drum",
+      "kind": "synth"
+    },
+    {
+      "selector": 3,
+      "name": "Swarmer",
+      "kind": "synth"
+    },
+    {
+      "selector": 4,
+      "name": "MIDI",
+      "kind": "midi"
+    }
+  ],
+  "selector_mapping_policy": "Persisted explicit mapping. 5/6 preserve existing BD/SD Sounds; remaining identities assigned 7..53 in original inventory order. Never reorder or reuse.",
+  "machines": [
+    {
+      "selector": 7,
+      "md_id": 1,
+      "name": "GND-SIN",
+      "family": "GND",
+      "syn_slots": 8,
+      "syn_parameter_count": 4,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 73,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RDEC",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201130",
+        "dsp_entries": {
+          "init": "0x1000a3",
+          "trigger": "0x1000a4",
+          "render": "0x1000ad"
+        },
+        "dependencies_inventory_md_id": 1
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 8,
+      "md_id": 2,
+      "name": "GND-NS",
+      "family": "GND",
+      "syn_slots": 8,
+      "syn_parameter_count": 1,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201194",
+        "dsp_entries": {
+          "init": "0x1000dd",
+          "trigger": "0x1000e4",
+          "render": "0x1000ea"
+        },
+        "dependencies_inventory_md_id": 2
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 9,
+      "md_id": 3,
+      "name": "GND-IM",
+      "family": "GND",
+      "syn_slots": 8,
+      "syn_parameter_count": 4,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "UP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "UVAL",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "DOWN",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "DVAL",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2011b4",
+        "dsp_entries": {
+          "init": "0x100109",
+          "trigger": "0x10010a",
+          "render": "0x100113"
+        },
+        "dependencies_inventory_md_id": 3
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 5,
+      "md_id": 16,
+      "name": "TRX-BD",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RDEC",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "NOIS",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "HARM",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "CLIP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20122a",
+        "dsp_entries": {
+          "init": "0x1003da",
+          "trigger": "0x1003e1",
+          "render": "0x100408"
+        },
+        "dependencies_inventory_md_id": 16
+      },
+      "native": {
+        "status": "verified-software",
+        "enabled": true,
+        "source": "tools/trxbd_sharc/trxbd_sharc.c",
+        "prefix": "trxbd",
+        "state_bytes": 320,
+        "external_state_bytes": 0,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": "trxbd_slot_init",
+          "update_trigger_render": "trxbd_slot_process",
+          "coefficients": "trxbd_compute_coeffs",
+          "trigger": "trxbd_voice_trigger",
+          "render44100": "trxbd_render_block_44k1",
+          "render48000": "trxbd_render_block_48k_float",
+          "dispose": null
+        },
+        "voice_type": "TrxBdVoice",
+        "stream_byte_offset": 144,
+        "resampler_symbol": "trxbd_resample_run",
+        "assembly_sources": [
+          "tools/trxbd_sharc/math_leaf.s"
+        ],
+        "source_dependencies": [
+          "tools/trxbd_sharc/trxbd_sharc.c",
+          "tools/trxbd_sharc/trxbd_tables.h",
+          "tools/machines/engine_slot.inc",
+          "tools/md_runtime/arithmetic.h",
+          "tools/md_runtime/arithmetic.s",
+          "tools/md_runtime/voice.h",
+          "tools/md_runtime/render48.inc",
+          "tools/md_runtime/resample.s.in",
+          "tools/trxbd_sharc/math_leaf.s"
+        ],
+        "immutable_data_requirements": "Original sine/decay shared; exact table dependencies in native source and original inventory",
+        "disposal": "Clear slot on owner/machine replacement; retrigger retains synthesis history",
+        "compatibility": {
+          "source_rate_hz": 44100,
+          "output_rate_hz": 48000,
+          "block_samples": 32,
+          "mandatory_mono": true,
+          "stock_allocator": true
+        },
+        "code_components": [
+          {
+            "owner": "TRX-BD",
+            "start": 0,
+            "end": "trxbd_build_sine_table."
+          },
+          {
+            "owner": "shared",
+            "start": "trxbd_build_sine_table.",
+            "end": "trxbd_compute_coeffs."
+          },
+          {
+            "owner": "TRX-BD",
+            "start": "trxbd_compute_coeffs.",
+            "end": "section_end"
+          }
+        ],
+        "verification": {
+          "module": "tools.trxbd_sharc.validate_original",
+          "output_prefix": "bd",
+          "schedules": [
+            {
+              "suffix": "parity",
+              "blocks": 288,
+              "cases": null
+            },
+            {
+              "suffix": "long",
+              "blocks": 1200,
+              "cases": [
+                "quiet_modulated_retrigger"
+              ]
+            }
+          ]
+        }
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": true,
+        "dependencies_complete": true,
+        "unknowns": [
+          "Physical cache/IRQ/DMA/cycle headroom"
+        ]
+      }
+    },
+    {
+      "selector": 6,
+      "md_id": 17,
+      "name": "TRX-SD",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "BUMP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "BENV",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "SNAP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "TONE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "TUNE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "CLIP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2013a6",
+        "dsp_entries": {
+          "init": "0x10074c",
+          "trigger": "0x10075b",
+          "render": "0x100776"
+        },
+        "dependencies_inventory_md_id": 17
+      },
+      "native": {
+        "status": "verified-software",
+        "enabled": true,
+        "source": "tools/trxsd/trxsd.c",
+        "prefix": "trxsd",
+        "state_bytes": 296,
+        "external_state_bytes": 0,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": "trxsd_slot_init",
+          "update_trigger_render": "trxsd_slot_process",
+          "coefficients": "trxsd_compute_coeffs",
+          "trigger": "trxsd_voice_trigger",
+          "render44100": "trxsd_render_block_44k1",
+          "render48000": "trxsd_render_block_48k_float",
+          "dispose": null
+        },
+        "voice_type": "TrxSdVoice",
+        "stream_byte_offset": 120,
+        "resampler_symbol": "trxsd_resample_run",
+        "assembly_sources": [
+          "tools/trxsd/filter.s"
+        ],
+        "source_dependencies": [
+          "tools/trxsd/trxsd.c",
+          "tools/trxsd/trxsd_tables.h",
+          "tools/machines/engine_slot.inc",
+          "tools/md_runtime/arithmetic.h",
+          "tools/md_runtime/arithmetic.s",
+          "tools/md_runtime/voice.h",
+          "tools/md_runtime/render48.inc",
+          "tools/md_runtime/resample.s.in",
+          "tools/trxsd/filter.s"
+        ],
+        "immutable_data_requirements": "Original sine/decay shared; exact table dependencies in native source and original inventory",
+        "disposal": "Clear slot on owner/machine replacement; retrigger retains synthesis history",
+        "compatibility": {
+          "source_rate_hz": 44100,
+          "output_rate_hz": 48000,
+          "block_samples": 32,
+          "mandatory_mono": true,
+          "stock_allocator": true
+        },
+        "code_components": [
+          {
+            "owner": "TRX-SD-runtime-specialization",
+            "start": 0,
+            "end": "trxsd_compute_coeffs."
+          },
+          {
+            "owner": "TRX-SD",
+            "start": "trxsd_compute_coeffs.",
+            "end": "trxsd_render_block_48k_float."
+          },
+          {
+            "owner": "TRX-SD-runtime-specialization",
+            "start": "trxsd_render_block_48k_float.",
+            "end": "section_end"
+          }
+        ],
+        "verification": {
+          "module": "tools.trxsd.validate_native",
+          "output_prefix": "sd",
+          "schedules": [
+            {
+              "suffix": "parity",
+              "blocks": 288,
+              "cases": null
+            },
+            {
+              "suffix": "long",
+              "blocks": 1200,
+              "cases": [
+                "quiet_modulated_retrigger"
+              ]
+            }
+          ]
+        }
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": true,
+        "dependencies_complete": true,
+        "unknowns": [
+          "Physical cache/IRQ/DMA/cycle headroom"
+        ]
+      }
+    },
+    {
+      "selector": 10,
+      "md_id": 18,
+      "name": "TRX-XT",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 7,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 48,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 48,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RDEC",
+          "default_raw": 102,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "DAMP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "DIST",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "DTYP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2014c2",
+        "dsp_entries": {
+          "init": "0x101882",
+          "trigger": "0x101883",
+          "render": "0x101891"
+        },
+        "dependencies_inventory_md_id": 18
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 11,
+      "md_id": 19,
+      "name": "TRX-CP",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "CLPY",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "TONE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RICH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "RATE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "ROOM",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RSIZ",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "RTUN",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20158c",
+        "dsp_entries": {
+          "init": "0x10194f",
+          "trigger": "0x101966",
+          "render": "0x101972"
+        },
+        "dependencies_inventory_md_id": 19
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 12,
+      "md_id": 20,
+      "name": "TRX-RS",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 3,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "DIST",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2016b8",
+        "dsp_entries": {
+          "init": "0x101ab0",
+          "trigger": "0x101ab8",
+          "render": "0x101acd"
+        },
+        "dependencies_inventory_md_id": 20
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 13,
+      "md_id": 21,
+      "name": "TRX-CB",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 6,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "ENH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "DAMP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "TONE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "BUMP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201714",
+        "dsp_entries": {
+          "init": "0x101ea0",
+          "trigger": "0x101ebb",
+          "render": "0x101ec4"
+        },
+        "dependencies_inventory_md_id": 21
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 14,
+      "md_id": 22,
+      "name": "TRX-CH",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 5,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "GAP",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HPF",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "LPF",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MTAL",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201800",
+        "dsp_entries": {
+          "init": "0x10201f",
+          "trigger": "0x102034",
+          "render": "0x10204d"
+        },
+        "dependencies_inventory_md_id": 22
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 15,
+      "md_id": 23,
+      "name": "TRX-OH",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 5,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "GAP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HPF",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "LPF",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MTAL",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2018b2",
+        "dsp_entries": {
+          "init": "0x1021f4",
+          "trigger": "0x102209",
+          "render": "0x102222"
+        },
+        "dependencies_inventory_md_id": 23
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 16,
+      "md_id": 24,
+      "name": "TRX-CY",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 6,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "RICH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "TOP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "TTUN",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "SIZE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "PEAK",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201976",
+        "dsp_entries": {
+          "init": "0x1023c9",
+          "trigger": "0x1023eb",
+          "render": "0x1023fa"
+        },
+        "dependencies_inventory_md_id": 24
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 17,
+      "md_id": 25,
+      "name": "TRX-MA",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "ATT",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "SUS",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "REV",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "DAMP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "RATL",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTYP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "TONE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "HARD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201bc0",
+        "dsp_entries": {
+          "init": "0x1028f4",
+          "trigger": "0x102914",
+          "render": "0x10291f"
+        },
+        "dependencies_inventory_md_id": 25
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 18,
+      "md_id": 26,
+      "name": "TRX-CL",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 6,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "DUAL",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "ENH",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "TUNE",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "CLIC",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201cb0",
+        "dsp_entries": {
+          "init": "0x102aa9",
+          "trigger": "0x102ab3",
+          "render": "0x102abf"
+        },
+        "dependencies_inventory_md_id": 26
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 19,
+      "md_id": 27,
+      "name": "TRX-XC",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 7,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RDEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "DAMP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "DIST",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "DTYP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201d80",
+        "dsp_entries": {
+          "init": "0x102b87",
+          "trigger": "0x102b88",
+          "render": "0x102b96"
+        },
+        "dependencies_inventory_md_id": 27
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 20,
+      "md_id": 28,
+      "name": "TRX-B2",
+      "family": "TRX",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HOLD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "TICK",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "NOIS",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "DIRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "DIST",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x201fd2",
+        "dsp_entries": {
+          "init": "0x102c31",
+          "trigger": "0x102c4a",
+          "render": "0x102c5a"
+        },
+        "dependencies_inventory_md_id": 28
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 21,
+      "md_id": 32,
+      "name": "EFM-BD",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 36,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 76,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RDEC",
+          "default_raw": 55,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "MFB",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20211c",
+        "dsp_entries": {
+          "init": "0x102eef",
+          "trigger": "0x102ef3",
+          "render": "0x102f06"
+        },
+        "dependencies_inventory_md_id": 32
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 22,
+      "md_id": 33,
+      "name": "EFM-SD",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 55,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "NOIS",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "NDEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 44,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "HPF",
+          "default_raw": 16,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2021fc",
+        "dsp_entries": {
+          "init": "0x102f68",
+          "trigger": "0x102f6f",
+          "render": "0x102f85"
+        },
+        "dependencies_inventory_md_id": 33
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 23,
+      "md_id": 34,
+      "name": "EFM-XT",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "RAMP",
+          "default_raw": 38,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RDEC",
+          "default_raw": 87,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 48,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 84,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 55,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "CLIC",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2022f4",
+        "dsp_entries": {
+          "init": "0x10304e",
+          "trigger": "0x103052",
+          "render": "0x103065"
+        },
+        "dependencies_inventory_md_id": 34
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 24,
+      "md_id": 35,
+      "name": "EFM-CP",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 83,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 41,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "CLPS",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "CDEC",
+          "default_raw": 36,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "HPF",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2023de",
+        "dsp_entries": {
+          "init": "0x1030ec",
+          "trigger": "0x1030f0",
+          "render": "0x103104"
+        },
+        "dependencies_inventory_md_id": 35
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 25,
+      "md_id": 36,
+      "name": "EFM-RS",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "MOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPF",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "SNAR",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "SPTC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "SDEC",
+          "default_raw": 44,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "SMOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2024d0",
+        "dsp_entries": {
+          "init": "0x1031a3",
+          "trigger": "0x1031a8",
+          "render": "0x1031bb"
+        },
+        "dependencies_inventory_md_id": 36
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 26,
+      "md_id": 37,
+      "name": "EFM-CB",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 7,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "SNAP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "FB",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2025e6",
+        "dsp_entries": {
+          "init": "0x103272",
+          "trigger": "0x103277",
+          "render": "0x10328c"
+        },
+        "dependencies_inventory_md_id": 37
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 27,
+      "md_id": 38,
+      "name": "EFM-HH",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "TREM",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "TFRQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "FB",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2026f8",
+        "dsp_entries": {
+          "init": "0x10332e",
+          "trigger": "0x103332",
+          "render": "0x103349"
+        },
+        "dependencies_inventory_md_id": 38
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 28,
+      "md_id": 39,
+      "name": "EFM-CY",
+      "family": "EFM",
+      "syn_slots": 8,
+      "syn_parameter_count": 7,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 72,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "FB",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPF",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "MOD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "MFRQ",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "MDEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20280c",
+        "dsp_entries": {
+          "init": "0x1033f1",
+          "trigger": "0x1033f4",
+          "render": "0x10340f"
+        },
+        "dependencies_inventory_md_id": 39
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 29,
+      "md_id": 48,
+      "name": "E12-BD",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "SNAP",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "SPLN",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x202948",
+        "dsp_entries": {
+          "init": "0x1036b6",
+          "trigger": "0x103819",
+          "render": "0x103945"
+        },
+        "dependencies_inventory_md_id": 48
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 30,
+      "md_id": 49,
+      "name": "E12-SD",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 80,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RING",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x202ae8",
+        "dsp_entries": {
+          "init": "0x103718",
+          "trigger": "0x103783",
+          "render": "0x103b46"
+        },
+        "dependencies_inventory_md_id": 49
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 31,
+      "md_id": 50,
+      "name": "E12-HT",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 86,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203434",
+        "dsp_entries": {
+          "init": "0x1036c4",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 50
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 32,
+      "md_id": 51,
+      "name": "E12-LT",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 82,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203434",
+        "dsp_entries": {
+          "init": "0x1036d2",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 51
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 33,
+      "md_id": 52,
+      "name": "E12-CP",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203434",
+        "dsp_entries": {
+          "init": "0x1036fc",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 52
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 34,
+      "md_id": 53,
+      "name": "E12-RS",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RATL",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20325e",
+        "dsp_entries": {
+          "init": "0x103718",
+          "trigger": "0x10379c",
+          "render": "0x103a10"
+        },
+        "dependencies_inventory_md_id": 53
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 35,
+      "md_id": 54,
+      "name": "E12-CB",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203434",
+        "dsp_entries": {
+          "init": "0x10373e",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 54
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 36,
+      "md_id": 55,
+      "name": "E12-CH",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 80,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 48,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203434",
+        "dsp_entries": {
+          "init": "0x1036e0",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 55
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 37,
+      "md_id": 56,
+      "name": "E12-OH",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "STOP",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20399e",
+        "dsp_entries": {
+          "init": "0x1036ee",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 56
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 38,
+      "md_id": 57,
+      "name": "E12-RC",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "BELL",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x202cb8",
+        "dsp_entries": {
+          "init": "0x103718",
+          "trigger": "0x1037b5",
+          "render": "0x103b46"
+        },
+        "dependencies_inventory_md_id": 57
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 39,
+      "md_id": 58,
+      "name": "E12-CC",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x202e9e",
+        "dsp_entries": {
+          "init": "0x103722",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 58
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 40,
+      "md_id": 59,
+      "name": "E12-BR",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "REAL",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x202ae8",
+        "dsp_entries": {
+          "init": "0x103718",
+          "trigger": "0x103800",
+          "render": "0x103b46"
+        },
+        "dependencies_inventory_md_id": 59
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 41,
+      "md_id": 60,
+      "name": "E12-TA",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2037d6",
+        "dsp_entries": {
+          "init": "0x103730",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 60
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 42,
+      "md_id": 61,
+      "name": "E12-TR",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 76,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HPQ",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2035fa",
+        "dsp_entries": {
+          "init": "0x10370a",
+          "trigger": "0x103768",
+          "render": "0x103838"
+        },
+        "dependencies_inventory_md_id": 61
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 43,
+      "md_id": 62,
+      "name": "E12-SH",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "SLEW",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x20308c",
+        "dsp_entries": {
+          "init": "0x103718",
+          "trigger": "0x1037ce",
+          "render": "0x103b46"
+        },
+        "dependencies_inventory_md_id": 62
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 44,
+      "md_id": 63,
+      "name": "E12-BC",
+      "family": "E12",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HP",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "BC",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "STRT",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RTRG",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RTIM",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "BEND",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x202ae8",
+        "dsp_entries": {
+          "init": "0x103718",
+          "trigger": "0x1037e7",
+          "render": "0x103b46"
+        },
+        "dependencies_inventory_md_id": 63
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 45,
+      "md_id": 64,
+      "name": "P-I-BD",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 6,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 80,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 26,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HAMR",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "TENS",
+          "default_raw": 29,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "DAMP",
+          "default_raw": 122,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203b7a",
+        "dsp_entries": {
+          "init": "0x142100",
+          "trigger": "0x14213c",
+          "render": "0x142145"
+        },
+        "dependencies_inventory_md_id": 64
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1536,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 46,
+      "md_id": 65,
+      "name": "P-I-SD",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 7,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RING",
+          "default_raw": 16,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "TENS",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RVOL",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "RDEC",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203c26",
+        "dsp_entries": {
+          "init": "0x142d49",
+          "trigger": "0x142d88",
+          "render": "0x142d95"
+        },
+        "dependencies_inventory_md_id": 65
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1536,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 47,
+      "md_id": 66,
+      "name": "P-I-MT",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 22,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 24,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "HAMR",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "TUNE",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "DAMP",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "SIZE",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "POS",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203ce4",
+        "dsp_entries": {
+          "init": "0x1434a6",
+          "trigger": "0x1434d6",
+          "render": "0x1434df"
+        },
+        "dependencies_inventory_md_id": 66
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1536,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 48,
+      "md_id": 67,
+      "name": "P-I-ML",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 4,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "TENS",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203dc8",
+        "dsp_entries": {
+          "init": "0x143e0d",
+          "trigger": "0x143e3d",
+          "render": "0x143e49"
+        },
+        "dependencies_inventory_md_id": 67
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 49,
+      "md_id": 68,
+      "name": "P-I-MA",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 5,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "GRNS",
+          "default_raw": 99,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "GLEN",
+          "default_raw": 72,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "SIZE",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "HARD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203e88",
+        "dsp_entries": {
+          "init": "0x145aa7",
+          "trigger": "0x145ab7",
+          "render": "0x145abb"
+        },
+        "dependencies_inventory_md_id": 68
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 0,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 50,
+      "md_id": 69,
+      "name": "P-I-RS",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 6,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 48,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RING",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "RVOL",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "RDEC",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "",
+          "default_raw": 0,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203f34",
+        "dsp_entries": {
+          "init": "0x144ab9",
+          "trigger": "0x144af4",
+          "render": "0x144b01"
+        },
+        "dependencies_inventory_md_id": 69
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1536,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 51,
+      "md_id": 70,
+      "name": "P-I-RC",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 70,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RING",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "AG",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "AU",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "BR",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "GRAB",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x203fd2",
+        "dsp_entries": {
+          "init": "0x145624",
+          "trigger": "0x14565b",
+          "render": "0x14566c"
+        },
+        "dependencies_inventory_md_id": 70
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1024,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 52,
+      "md_id": 71,
+      "name": "P-I-CC",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 70,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "HARD",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RING",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "AG",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "AU",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "BR",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "GRAB",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x2040f8",
+        "dsp_entries": {
+          "init": "0x144fec",
+          "trigger": "0x145023",
+          "render": "0x145037"
+        },
+        "dependencies_inventory_md_id": 71
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1024,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    },
+    {
+      "selector": 53,
+      "md_id": 72,
+      "name": "P-I-HH",
+      "family": "P-I",
+      "syn_slots": 8,
+      "syn_parameter_count": 8,
+      "syn": [
+        {
+          "slot": 0,
+          "label": "PTCH",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 1,
+          "label": "DEC",
+          "default_raw": 70,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 2,
+          "label": "CLSN",
+          "default_raw": 96,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 3,
+          "label": "RING",
+          "default_raw": 32,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 4,
+          "label": "AG",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 5,
+          "label": "AU",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 6,
+          "label": "BR",
+          "default_raw": 64,
+          "min_raw": 0,
+          "max_raw": 127
+        },
+        {
+          "slot": 7,
+          "label": "CLOS",
+          "default_raw": 127,
+          "min_raw": 0,
+          "max_raw": 127
+        }
+      ],
+      "original": {
+        "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+        "coefficient_entry": "0x204216",
+        "dsp_entries": {
+          "init": "0x14584f",
+          "trigger": "0x145887",
+          "render": "0x1458a0"
+        },
+        "dependencies_inventory_md_id": 72
+      },
+      "native": {
+        "status": "unavailable",
+        "enabled": false,
+        "source": null,
+        "prefix": null,
+        "state_bytes": null,
+        "external_state_bytes": null,
+        "code_bytes": null,
+        "data_bytes": null,
+        "benchmark_instructions": null,
+        "physical_cycles": null,
+        "entry_points": {
+          "initialize": null,
+          "update_trigger_render": null,
+          "coefficients": null,
+          "trigger": null,
+          "render44100": null,
+          "render48000": null,
+          "dispose": null
+        },
+        "voice_type": null,
+        "stream_byte_offset": null,
+        "resampler_symbol": null,
+        "assembly_sources": [],
+        "source_dependencies": [],
+        "immutable_data_requirements": null,
+        "disposal": null,
+        "compatibility": null,
+        "code_components": [],
+        "verification": null
+      },
+      "requirements": {
+        "observed_original_external_words": 1024,
+        "native_complete_state_bound_proven": false,
+        "dependencies_complete": false,
+        "unknowns": [
+          "Complete control-flow and indirect lookup extents",
+          "All lifetime/retrigger corner cases",
+          "Native worst-case cost and physical real-time headroom"
+        ]
+      }
+    }
+  ]
+}

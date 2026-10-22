@@ -1,0 +1,2131 @@
+{
+  "machines": [
+    {
+      "machine": 0,
+      "slots": [
+        {
+          "slot": 25,
+          "record": 200,
+          "minimum": 0,
+          "maximum": 1792,
+          "default": 0
+        },
+        {
+          "slot": 26,
+          "record": 201,
+          "minimum": 0,
+          "maximum": 4608,
+          "default": 768
+        },
+        {
+          "slot": 27,
+          "record": 202,
+          "minimum": 0,
+          "maximum": 8960,
+          "default": 768
+        },
+        {
+          "slot": 28,
+          "record": 203,
+          "minimum": 0,
+          "maximum": 720,
+          "default": 120
+        },
+        {
+          "slot": 29,
+          "record": 204,
+          "minimum": 9472,
+          "maximum": 22784,
+          "default": 16128
+        },
+        {
+          "slot": 30,
+          "record": 205,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 31,
+          "record": 206,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 32,
+          "record": 207,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 33,
+          "record": 226,
+          "minimum": 0,
+          "maximum": 1024,
+          "default": 256
+        },
+        {
+          "slot": 34,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 35,
+          "record": 212,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 36,
+          "record": 213,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 8192
+        },
+        {
+          "slot": 37,
+          "record": 214,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 38,
+          "record": 215,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 39,
+          "record": 216,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 40,
+          "record": 217,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 8192
+        },
+        {
+          "slot": 41,
+          "record": 218,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 42,
+          "record": 219,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 43,
+          "record": 220,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 44,
+          "record": 221,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 45,
+          "record": 222,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 46,
+          "record": 223,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 47,
+          "record": 224,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 48,
+          "record": 225,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 49,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 50,
+          "record": 227,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 51,
+          "record": 228,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 52,
+          "record": 229,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 53,
+          "record": 230,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 54,
+          "record": 231,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 55,
+          "record": 232,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 56,
+          "record": 233,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 57,
+          "record": 234,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 58,
+          "record": 208,
+          "minimum": 0,
+          "maximum": 32766,
+          "default": 16384
+        },
+        {
+          "slot": 59,
+          "record": 209,
+          "minimum": 0,
+          "maximum": 32766,
+          "default": 16384
+        },
+        {
+          "slot": 60,
+          "record": 210,
+          "minimum": 0,
+          "maximum": 32766,
+          "default": 16384
+        },
+        {
+          "slot": 61,
+          "record": 211,
+          "minimum": 0,
+          "maximum": 32766,
+          "default": 16384
+        },
+        {
+          "slot": 62,
+          "record": 235,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 63,
+          "record": 236,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 64,
+          "record": 237,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 65,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 66,
+          "record": 38,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 67,
+          "record": 36,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 68,
+          "record": 37,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 69,
+          "record": 49,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 70,
+          "record": 44,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 71,
+          "record": 45,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 72,
+          "record": 46,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 73,
+          "record": 47,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 74,
+          "record": 48,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 75,
+          "record": 50,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 76,
+          "record": 52,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 77,
+          "record": 53,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 78,
+          "record": 60,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 79,
+          "record": 51,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 0
+        },
+        {
+          "slot": 80,
+          "record": 61,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 81,
+          "record": 62,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 2048
+        },
+        {
+          "slot": 82,
+          "record": 63,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 83,
+          "record": 64,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 8192
+        },
+        {
+          "slot": 84,
+          "record": 65,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 24576
+        },
+        {
+          "slot": 85,
+          "record": 66,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 6144
+        },
+        {
+          "slot": 86,
+          "record": 68,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 87,
+          "record": 69,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 88,
+          "record": 67,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 89,
+          "record": 71,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 90,
+          "record": 72,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 28160
+        },
+        {
+          "slot": 91,
+          "record": 73,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 92,
+          "record": 74,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 93,
+          "record": 34,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 9984
+        },
+        {
+          "slot": 94,
+          "record": 35,
+          "minimum": 16128,
+          "maximum": 16384,
+          "default": 16128
+        },
+        {
+          "slot": 95,
+          "record": 301,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 96,
+          "record": 302,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 97,
+          "record": 303,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 98,
+          "record": 304,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 99,
+          "record": 305,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "machine": 1,
+      "slots": [
+        {
+          "slot": 25,
+          "record": 238,
+          "minimum": 1024,
+          "maximum": 31744,
+          "default": 16384
+        },
+        {
+          "slot": 26,
+          "record": 239,
+          "minimum": 0,
+          "maximum": 30720,
+          "default": 0
+        },
+        {
+          "slot": 27,
+          "record": 247,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 28,
+          "record": 246,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 12800
+        },
+        {
+          "slot": 29,
+          "record": 240,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 12800
+        },
+        {
+          "slot": 30,
+          "record": 241,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 25600
+        },
+        {
+          "slot": 31,
+          "record": 242,
+          "minimum": 1024,
+          "maximum": 31744,
+          "default": 16384
+        },
+        {
+          "slot": 32,
+          "record": 243,
+          "minimum": 0,
+          "maximum": 30720,
+          "default": 0
+        },
+        {
+          "slot": 33,
+          "record": 251,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 34,
+          "record": 250,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 12800
+        },
+        {
+          "slot": 35,
+          "record": 244,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 12800
+        },
+        {
+          "slot": 36,
+          "record": 245,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 25600
+        },
+        {
+          "slot": 37,
+          "record": 248,
+          "minimum": 0,
+          "maximum": 768,
+          "default": 0
+        },
+        {
+          "slot": 38,
+          "record": 252,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 39,
+          "record": 249,
+          "minimum": 0,
+          "maximum": 512,
+          "default": 256
+        },
+        {
+          "slot": 40,
+          "record": 253,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 41,
+          "record": 254,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 42,
+          "record": 255,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 43,
+          "record": 256,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 44,
+          "record": 257,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 45,
+          "record": 258,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 46,
+          "record": 259,
+          "minimum": 0,
+          "maximum": 512,
+          "default": 0
+        },
+        {
+          "slot": 47,
+          "record": 260,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 48,
+          "record": 261,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 49,
+          "record": 262,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 50,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 51,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 52,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 53,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 54,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 55,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 56,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 57,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 58,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 59,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 60,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 61,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 62,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 63,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 64,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 65,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 66,
+          "record": 38,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 67,
+          "record": 36,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 68,
+          "record": 37,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 69,
+          "record": 49,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 70,
+          "record": 44,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 71,
+          "record": 45,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 72,
+          "record": 46,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 73,
+          "record": 47,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 74,
+          "record": 48,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 75,
+          "record": 50,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 76,
+          "record": 52,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 77,
+          "record": 53,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 78,
+          "record": 60,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 79,
+          "record": 51,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 0
+        },
+        {
+          "slot": 80,
+          "record": 61,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 81,
+          "record": 62,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 2048
+        },
+        {
+          "slot": 82,
+          "record": 63,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 83,
+          "record": 64,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 8192
+        },
+        {
+          "slot": 84,
+          "record": 65,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 24576
+        },
+        {
+          "slot": 85,
+          "record": 66,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 6144
+        },
+        {
+          "slot": 86,
+          "record": 68,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 87,
+          "record": 69,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 88,
+          "record": 67,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 89,
+          "record": 71,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 90,
+          "record": 72,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 28160
+        },
+        {
+          "slot": 91,
+          "record": 73,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 92,
+          "record": 74,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 93,
+          "record": 34,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 9984
+        },
+        {
+          "slot": 94,
+          "record": 35,
+          "minimum": 16128,
+          "maximum": 16384,
+          "default": 16128
+        },
+        {
+          "slot": 95,
+          "record": 301,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 96,
+          "record": 302,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 97,
+          "record": 303,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 98,
+          "record": 304,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 99,
+          "record": 305,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "machine": 2,
+      "slots": [
+        {
+          "slot": 25,
+          "record": 263,
+          "minimum": 1024,
+          "maximum": 31744,
+          "default": 16384
+        },
+        {
+          "slot": 26,
+          "record": 264,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 27,
+          "record": 265,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 28,
+          "record": 270,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 29,
+          "record": 266,
+          "minimum": 0,
+          "maximum": 1536,
+          "default": 0
+        },
+        {
+          "slot": 30,
+          "record": 269,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 31,
+          "record": 267,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 32,
+          "record": 268,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 33,
+          "record": 271,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 34,
+          "record": 272,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 35,
+          "record": 273,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 512
+        },
+        {
+          "slot": 36,
+          "record": 274,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 37,
+          "record": 275,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 38,
+          "record": 276,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 39,
+          "record": 277,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 2048
+        },
+        {
+          "slot": 40,
+          "record": 278,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 41,
+          "record": 279,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 42,
+          "record": 287,
+          "minimum": 0,
+          "maximum": 31744,
+          "default": 0
+        },
+        {
+          "slot": 43,
+          "record": 289,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 44,
+          "record": 290,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 45,
+          "record": 286,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 46,
+          "record": 292,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 47,
+          "record": 288,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 48,
+          "record": 280,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 49,
+          "record": 282,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 50,
+          "record": 281,
+          "minimum": 0,
+          "maximum": 23296,
+          "default": 0
+        },
+        {
+          "slot": 51,
+          "record": 283,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 52,
+          "record": 284,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 53,
+          "record": 285,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 54,
+          "record": 291,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 55,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 56,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 57,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 58,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 59,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 60,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 61,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 62,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 63,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 64,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 65,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 66,
+          "record": 38,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 67,
+          "record": 36,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 68,
+          "record": 37,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 69,
+          "record": 49,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 70,
+          "record": 44,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 71,
+          "record": 45,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 72,
+          "record": 46,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 73,
+          "record": 47,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 74,
+          "record": 48,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 75,
+          "record": 50,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 76,
+          "record": 52,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 77,
+          "record": 53,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 78,
+          "record": 60,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 79,
+          "record": 51,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 0
+        },
+        {
+          "slot": 80,
+          "record": 61,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 81,
+          "record": 62,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 2048
+        },
+        {
+          "slot": 82,
+          "record": 63,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 83,
+          "record": 64,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 8192
+        },
+        {
+          "slot": 84,
+          "record": 65,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 24576
+        },
+        {
+          "slot": 85,
+          "record": 66,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 6144
+        },
+        {
+          "slot": 86,
+          "record": 68,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 87,
+          "record": 69,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 88,
+          "record": 67,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 89,
+          "record": 71,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 90,
+          "record": 72,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 28160
+        },
+        {
+          "slot": 91,
+          "record": 73,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 92,
+          "record": 74,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 93,
+          "record": 34,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 9984
+        },
+        {
+          "slot": 94,
+          "record": 35,
+          "minimum": 16128,
+          "maximum": 16384,
+          "default": 16128
+        },
+        {
+          "slot": 95,
+          "record": 301,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 96,
+          "record": 302,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 97,
+          "record": 303,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 98,
+          "record": 304,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 99,
+          "record": 305,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        }
+      ]
+    },
+    {
+      "machine": 3,
+      "slots": [
+        {
+          "slot": 25,
+          "record": 293,
+          "minimum": 1024,
+          "maximum": 31744,
+          "default": 16384
+        },
+        {
+          "slot": 26,
+          "record": 294,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 17920
+        },
+        {
+          "slot": 27,
+          "record": 296,
+          "minimum": 0,
+          "maximum": 30720,
+          "default": 20480
+        },
+        {
+          "slot": 28,
+          "record": 300,
+          "minimum": 0,
+          "maximum": 30720,
+          "default": 20480
+        },
+        {
+          "slot": 29,
+          "record": 295,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 30,
+          "record": 297,
+          "minimum": 0,
+          "maximum": 512,
+          "default": 512
+        },
+        {
+          "slot": 31,
+          "record": 298,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 3840
+        },
+        {
+          "slot": 32,
+          "record": 299,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 5120
+        },
+        {
+          "slot": 33,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 34,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 35,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 36,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 37,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 38,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 39,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 40,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 41,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 42,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 43,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 44,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 45,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 46,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 47,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 48,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 49,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 50,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 51,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 52,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 53,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 54,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 55,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 56,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 57,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 58,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 59,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 60,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 61,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 62,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 63,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 64,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 65,
+          "record": 0,
+          "minimum": 0,
+          "maximum": 0,
+          "default": 0
+        },
+        {
+          "slot": 66,
+          "record": 38,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 67,
+          "record": 36,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 68,
+          "record": 37,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 69,
+          "record": 49,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 70,
+          "record": 44,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 71,
+          "record": 45,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 72,
+          "record": 46,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 73,
+          "record": 47,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 74,
+          "record": 48,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 75,
+          "record": 50,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 76,
+          "record": 52,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 77,
+          "record": 53,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 78,
+          "record": 60,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 79,
+          "record": 51,
+          "minimum": 0,
+          "maximum": 25600,
+          "default": 0
+        },
+        {
+          "slot": 80,
+          "record": 61,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 81,
+          "record": 62,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 2048
+        },
+        {
+          "slot": 82,
+          "record": 63,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 32512
+        },
+        {
+          "slot": 83,
+          "record": 64,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 8192
+        },
+        {
+          "slot": 84,
+          "record": 65,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 24576
+        },
+        {
+          "slot": 85,
+          "record": 66,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 6144
+        },
+        {
+          "slot": 86,
+          "record": 68,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 87,
+          "record": 69,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 88,
+          "record": 67,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 89,
+          "record": 71,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 16384
+        },
+        {
+          "slot": 90,
+          "record": 72,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 28160
+        },
+        {
+          "slot": 91,
+          "record": 73,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 92,
+          "record": 74,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 256
+        },
+        {
+          "slot": 93,
+          "record": 34,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 9984
+        },
+        {
+          "slot": 94,
+          "record": 35,
+          "minimum": 16128,
+          "maximum": 16384,
+          "default": 16128
+        },
+        {
+          "slot": 95,
+          "record": 301,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 96,
+          "record": 302,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 97,
+          "record": 303,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        },
+        {
+          "slot": 98,
+          "record": 304,
+          "minimum": 0,
+          "maximum": 32512,
+          "default": 0
+        },
+        {
+          "slot": 99,
+          "record": 305,
+          "minimum": 0,
+          "maximum": 256,
+          "default": 0
+        }
+      ]
+    }
+  ],
+  "global_frame": {
+    "master_tuning_tenths_hz": 4400,
+    "master_tuning_offset": 2648,
+    "stock_source_address": "0x42432c11"
+  },
+  "stock_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "schema": "digimd.control-defaults.v1"
+}

@@ -1,0 +1,356 @@
+{
+  "schema": "digimd.resources.datasets.v1",
+  "firmware_sha256": "a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5",
+  "e12": {
+    "directory_address": "0x103d7b",
+    "directory_words": 63,
+    "source_count": 21,
+    "sources": [
+      {
+        "observed_machine_readers": [
+          "E12-BR"
+        ],
+        "index": 0,
+        "pointer": "0x103dba",
+        "directory_length_field": 8432,
+        "directory_third_field": 0,
+        "source_record_words": 4199,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x104eba",
+        "packed24_sha256": "1908c2e449e71ef5cbcba3e1317d4cae2cf21f116e7f62b9ba6bd66125569ed3"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-CP"
+        ],
+        "index": 1,
+        "pointer": "0x104eba",
+        "directory_length_field": 7994,
+        "directory_third_field": 0,
+        "source_record_words": 3980,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x105edf",
+        "packed24_sha256": "29385d084c77a313020b1cfe036bcd37fc9f7d54f8b38c638a8275ea18cd9245"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-CB"
+        ],
+        "index": 2,
+        "pointer": "0x105edf",
+        "directory_length_field": 5866,
+        "directory_third_field": 0,
+        "source_record_words": 2916,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x106adc",
+        "packed24_sha256": "742a43a8031e2876bf2bb3c0a2bc61d697807ef34724234f1f8611417f5e18e1"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-CC"
+        ],
+        "index": 3,
+        "pointer": "0x106adc",
+        "directory_length_field": 57320,
+        "directory_third_field": 0,
+        "source_record_words": 28643,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x10db58",
+        "packed24_sha256": "e4c8ab09bb271c2c6c2709953c5be42384322730e9e34d6b19c04ab70a152ad0"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-CH"
+        ],
+        "index": 4,
+        "pointer": "0x10db58",
+        "directory_length_field": 12242,
+        "directory_third_field": 0,
+        "source_record_words": 6104,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x10f3c9",
+        "packed24_sha256": "060d4679c00c8932fc4981b8bcacf5e330561a32c7ee33776a725a4e327e5ffe"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-BC"
+        ],
+        "index": 5,
+        "pointer": "0x10f3c9",
+        "directory_length_field": 2516,
+        "directory_third_field": 0,
+        "source_record_words": 1241,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x10f93b",
+        "packed24_sha256": "08e6910f474ee54c6b4fff3406635ba44273244bc09bd40e0788288f6a486419"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-BC"
+        ],
+        "index": 6,
+        "pointer": "0x10f93b",
+        "directory_length_field": 3236,
+        "directory_third_field": 0,
+        "source_record_words": 1601,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x110015",
+        "packed24_sha256": "d5e0f698be14510816055309acd3d0a07aa1c82347a3ad143670e4005d676cba"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-BD"
+        ],
+        "index": 7,
+        "pointer": "0x110015",
+        "directory_length_field": 11034,
+        "directory_third_field": 0,
+        "source_record_words": 5500,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x11162a",
+        "packed24_sha256": "6e313a0ed367c4a2eb5e364495585d263d287f85a060fa2f746f24c24aa4af74"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-OH"
+        ],
+        "index": 8,
+        "pointer": "0x11162a",
+        "directory_length_field": 32532,
+        "directory_third_field": 0,
+        "source_record_words": 16249,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x11563c",
+        "packed24_sha256": "78bed066cda20217d74b640c74d05fc43e1be07a9fe71ee21fb21d71e658e3b1"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-RC"
+        ],
+        "index": 9,
+        "pointer": "0x11563c",
+        "directory_length_field": 54334,
+        "directory_third_field": 0,
+        "source_record_words": 27150,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x11c0e3",
+        "packed24_sha256": "6d4b4b8f0b68788bbc3152128492aadc3f6d955a0b0f6aa07aae292ebdaac67f"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-RC"
+        ],
+        "index": 10,
+        "pointer": "0x11c0e3",
+        "directory_length_field": 53076,
+        "directory_third_field": 0,
+        "source_record_words": 26521,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x122915",
+        "packed24_sha256": "a0b031d636dfe78effacc62626102e856c33722d7d697b5ce23c31587b086a2d"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-RS"
+        ],
+        "index": 11,
+        "pointer": "0x122915",
+        "directory_length_field": 4602,
+        "directory_third_field": 0,
+        "source_record_words": 2284,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x12329a",
+        "packed24_sha256": "6bd5ab668d3589c95c959cfca99e4d1ccbd93f6e0970fed48ba0056848b7d692"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-RS",
+          "E12-SD"
+        ],
+        "index": 12,
+        "pointer": "0x12329a",
+        "directory_length_field": 32910,
+        "directory_third_field": 0,
+        "source_record_words": 16438,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x127369",
+        "packed24_sha256": "a68707bf2fbe8acc12c455ebd3b35ae54e18814ae1375d4ff88ba248b57009fa"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-SH"
+        ],
+        "index": 13,
+        "pointer": "0x127369",
+        "directory_length_field": 2258,
+        "directory_third_field": 0,
+        "source_record_words": 1112,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x12785a",
+        "packed24_sha256": "06cc38c47abb33b79fe7a962448076d55508a287b38691adc77655e175bbdb10"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-SH"
+        ],
+        "index": 14,
+        "pointer": "0x12785a",
+        "directory_length_field": 4112,
+        "directory_third_field": 0,
+        "source_record_words": 2039,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x1280ea",
+        "packed24_sha256": "04a644dc02f5ff13dba09b92579f545295c09b46fa174d684782b30c433857da"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-SD"
+        ],
+        "index": 15,
+        "pointer": "0x1280ea",
+        "directory_length_field": 15236,
+        "directory_third_field": 0,
+        "source_record_words": 7601,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x129f34",
+        "packed24_sha256": "74359c4fadee0ba13a3410a1690040cb1b87ffb790fd306348bb5aadb51699bb"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-TA"
+        ],
+        "index": 16,
+        "pointer": "0x129f34",
+        "directory_length_field": 7918,
+        "directory_third_field": 0,
+        "source_record_words": 3942,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x12af33",
+        "packed24_sha256": "69c6e279152373b50c716258e2d3850fba47e381b956cfb24a749af2a0cbb8d0"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-HT"
+        ],
+        "index": 17,
+        "pointer": "0x12af33",
+        "directory_length_field": 11914,
+        "directory_third_field": 0,
+        "source_record_words": 5940,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x12c700",
+        "packed24_sha256": "417ee2f44a613dd84d5e1dcb9372402a828501a1c8462639e3b93fd478c14f25"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-LT"
+        ],
+        "index": 18,
+        "pointer": "0x12c700",
+        "directory_length_field": 14028,
+        "directory_third_field": 0,
+        "source_record_words": 6997,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x12e2ee",
+        "packed24_sha256": "2fdf6e6b138b2889ca137efa131efbd9b679fc2e828ab84112eb2c6fb9c22e9e"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-TR"
+        ],
+        "index": 19,
+        "pointer": "0x12e2ee",
+        "directory_length_field": 43784,
+        "directory_third_field": 0,
+        "source_record_words": 21875,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x1338fa",
+        "packed24_sha256": "b3989a6a90bc519b41f2bd2e9e0170513a154c23f384df4232805441ba9e7b3f"
+      },
+      {
+        "observed_machine_readers": [
+          "E12-BR"
+        ],
+        "index": 20,
+        "pointer": "0x1338fa",
+        "directory_length_field": 12552,
+        "directory_third_field": 0,
+        "source_record_words": 6259,
+        "adjacent_guard_record_words": 153,
+        "end_exclusive": "0x135206",
+        "packed24_sha256": "a72fdb1043c1b88707d847007ce7fa045c5144a48ec352b7d0662ca1c49cdebc"
+      }
+    ],
+    "source_and_guard_words": 201804,
+    "packed24_bytes": 605412,
+    "native32_bytes": 807216,
+    "packed24_sha256": "d669fdc6b9096d216c5a16f07643471a5f78ba837f2d4b0454a09b10ab732217",
+    "native32_sha256": "123daa7809352cc7e4809355bfa185def92694136539c49cbb0c77e3d4c518bc",
+    "confidence": "Exact source/adjacent-guard record allocation; decoder/transfer implementations absent; SYN source reachability and all sample-edge behavior not exhaustively proven"
+  },
+  "pi_external_state": [
+    {
+      "name": "P-I-BD",
+      "observed_external_write_words": 1536,
+      "native32_bytes_per_observed_instance": 6144,
+      "native32_bytes_for_16_identical_instances": 98304,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-SD",
+      "observed_external_write_words": 1536,
+      "native32_bytes_per_observed_instance": 6144,
+      "native32_bytes_for_16_identical_instances": 98304,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-MT",
+      "observed_external_write_words": 1536,
+      "native32_bytes_per_observed_instance": 6144,
+      "native32_bytes_for_16_identical_instances": 98304,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-ML",
+      "observed_external_write_words": 0,
+      "native32_bytes_per_observed_instance": 0,
+      "native32_bytes_for_16_identical_instances": 0,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-MA",
+      "observed_external_write_words": 0,
+      "native32_bytes_per_observed_instance": 0,
+      "native32_bytes_for_16_identical_instances": 0,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-RS",
+      "observed_external_write_words": 1536,
+      "native32_bytes_per_observed_instance": 6144,
+      "native32_bytes_for_16_identical_instances": 98304,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-RC",
+      "observed_external_write_words": 1024,
+      "native32_bytes_per_observed_instance": 4096,
+      "native32_bytes_for_16_identical_instances": 65536,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-CC",
+      "observed_external_write_words": 1024,
+      "native32_bytes_per_observed_instance": 4096,
+      "native32_bytes_for_16_identical_instances": 65536,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    },
+    {
+      "name": "P-I-HH",
+      "observed_external_write_words": 1024,
+      "native32_bytes_per_observed_instance": 4096,
+      "native32_bytes_for_16_identical_instances": 65536,
+      "completeness": "Observed lower bound; requires all controls, lifetimes and scratch/private classification before allocation is final"
+    }
+  ]
+}

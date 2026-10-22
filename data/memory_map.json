@@ -1,0 +1,33 @@
+{
+  "schema": "digimd.memory-constraints.v1",
+  "firmware_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "sharc": {
+    "forbidden": [
+      [
+        3047424,
+        3080192,
+        "DM cache guard"
+      ],
+      [
+        3244032,
+        3276800,
+        "PM cache guard"
+      ],
+      [
+        3784704,
+        3801088,
+        "I cache"
+      ],
+      [
+        537467072,
+        537665536,
+        "unresolved stock L2 references"
+      ],
+      [
+        537894912,
+        537919488,
+        "L2 reserved/ROM"
+      ]
+    ]
+  }
+}

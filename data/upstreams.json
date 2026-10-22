@@ -1,0 +1,22 @@
+{
+  "digikit": {
+    "url": "https://github.com/naturarum/digikit.git",
+    "ref": "8a69807eadf9a693a832c701d9b2fb389898dfdf"
+  },
+  "dn2-cfw": {
+    "url": "https://github.com/naturarum/dn2-cfw.git",
+    "ref": "5ba6bbfce4ac9bbb43d6d383dd9935c8d7a1b77c"
+  },
+  "selache": {
+    "url": "https://github.com/js216/selache.git",
+    "ref": "2b26d3b75c53063575bc5c820fa0d38879335187"
+  },
+  "elekloader": {
+    "url": "https://github.com/naturarum/elekloader.git",
+    "ref": "c84f83c1f5187641139ae106430a1123196875bd"
+  },
+  "mpc-vst-machinedrum": {
+    "url": "https://github.com/sd88me/mpc-vst-machinedrum.git",
+    "ref": "6ea7a4adfcfacd1dc62fcac1cfea31b488f96d8f"
+  }
+}

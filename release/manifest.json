@@ -1,0 +1,11 @@
+{
+  "format": "digimd.copy-insert.v1",
+  "device": "Digitone II",
+  "stock_version": "1.12",
+  "status": "EXPERIMENTAL-HARDWARE-VALIDATION-INCOMPLETE",
+  "stock_sha256": "7e5b8a733d4ab1fdf7e5d22757f7d8eddaa3cbf71d0858874a791844c02ceb35",
+  "output_sha256": "57fe6a319a079e28632219e190dfb3fc7fb44e1deaf0ce541e2a823195b23deb",
+  "output_bytes": 3537056,
+  "patch_sha256": "e6ec049ffe449d16043d789bfa5ad9ed1b93a7a9b9c90992cea6dcd3bc0cf486",
+  "patch_decoded_bytes": 3510574
+}

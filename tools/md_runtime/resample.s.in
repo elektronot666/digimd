@@ -1,0 +1,119 @@
+/* Exact 147/160 stream; generated layout constants are word offsets for
+ * DAG MODIFY and byte offsets for ALU addresses. No engine DSP words read. */
+.SECTION/SW seg_swco;
+.GLOBAL @SYMBOL@.;
+@SYMBOL@.:
+    /* R4=voice, R8=output, R12=max count. Exact original rational clock:
+     * stop BEFORE reading a new 44.1k block, or after max count outputs.
+     * For valid pos<32 and frac<160, available outputs are
+     * ceil(((32-pos)*160-frac)/147). For x=0..5266, floor(x/147)
+     * equals (x*14267)>>21 exactly (exhaustively checked); its product
+     * fits signed32. Bound once, then use a hardware loop.
+     *
+     * Keep the original RND32 conversion/multiply/add order, without FMA.
+     * FLOAT sample BY -23 is exact because every signed24 sample has an
+     * exact binary32 representation and scaling by 2^-23 is exact.
+     * 0x304CCCCD=float(1/(2^23*160)). No MRF/MRB or MODE1 writes. */
+    I7=MODIFY (I7,-0x8)(NW);
+    DM(-0x3,I6) = R8;
+    DM(-0x4,I6) = R9;
+    DM(-0x5,I6) = R10;
+    DM(-0x6,I6) = R11;
+    DM(-0x7,I6) = R12;
+    DM(-0x8,I6) = R13;
+    DM(-0x9,I6) = R14;
+    DM(-0xA,I6) = R15;
+    R9 = PASS R4;
+    R13 = PASS R12;
+    R14 = 0;
+    I4 = R4;
+    I4=MODIFY (I4,@POSITION_WORD@)(NW);
+    R11 = DM(I4,M5);
+    I4=MODIFY (I4,0x1)(NW);
+    R12 = DM(I4,M5);
+    R1 = 32;
+    COMPU(R11,R1);
+    IF GE JUMP .L_resample_done;
+    R0 = R1 - R11;
+    R1 = 160;
+    R0 = R0 * R1 (SSI);
+    R0 = R0 - R12;
+    R1 = 146;
+    R0 = R0 + R1;
+    R1 = 14267;
+    R0 = R0 * R1 (SSI);
+    R14 = FEXT R0 BY 21:11;
+    COMPU(R14,R13);
+    IF LE JUMP .L_resample_count_ready;
+    R14 = PASS R13;
+.L_resample_count_ready:
+    R0 = 0;
+    COMP(R14,R0);
+    IF EQ JUMP .L_resample_done;
+    R15 = -23;
+    R13 = 0x304CCCCD;
+    R10 = LSHIFT R11 BY 2;
+    R1 = @BLOCK_BYTE@;
+    R10 = R10 + R1;
+    R10 = R10 + R9;
+    R1 = 0;
+    COMP(R11,R1);
+    IF NE JUMP .L_resample_previous;
+    I4 = R9;
+    I4=MODIFY (I4,@PREVIOUS_WORD@)(NW);
+    JUMP .L_resample_read_previous;
+.L_resample_previous:
+    I4 = R10;
+    I4=MODIFY (I4,-0x1)(NW);
+.L_resample_read_previous:
+    R5 = DM(I4,M5);
+    LCNTR = R14, DO .L_resample_end UNTIL LCE;
+    I4 = R10;
+    R7 = DM(I4,M5);
+    R6 = R7 - R5;
+    F0 = FLOAT R5 BY R15;
+    F3 = FLOAT R6;
+    F1 = FLOAT R12;
+    F3 = F3 * F1;
+    F3 = F3 * F13;
+    F0 = F0 + F3;
+    I4 = R8;
+    DM(I4,M5) = R0;
+    R1 = 147;
+    R12 = R12 + R1;
+    R1 = 160;
+    COMPU(R12,R1);
+    IF LT JUMP .L_resample_hold;
+    R12 = R12 - R1;
+    R1 = 1;
+    R11 = R11 + R1;
+    R5 = PASS R7;
+    R1 = 4;
+    R10 = R10 + R1;
+.L_resample_hold:
+    R1 = 4;
+.L_resample_end:
+    R8 = R8 + R1;
+.L_resample_done:
+    I4 = R9;
+    I4=MODIFY (I4,@POSITION_WORD@)(NW);
+    DM(I4,M5) = R11;
+    I4=MODIFY (I4,0x1)(NW);
+    DM(I4,M5) = R12;
+    R0 = PASS R14;
+    R8 = DM(-0x3,I6);
+    R9 = DM(-0x4,I6);
+    R10 = DM(-0x5,I6);
+    R11 = DM(-0x6,I6);
+    R12 = DM(-0x7,I6);
+    R13 = DM(-0x8,I6);
+    R14 = DM(-0x9,I6);
+    R15 = DM(-0xA,I6);
+    I7=MODIFY (I7,0x8)(NW);
+    I12 = DM(M7,I6);
+    JUMP(M14,I12)(DB);
+    RFRAME;
+    NOP;
+
+
+.ENDSEG;
