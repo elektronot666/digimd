@@ -14,8 +14,6 @@ No compatibility or functionality guarantees are made.
 
 No future releases are planned.
 
-This firmware has not been fully validated on hardware.
-
 Use entirely at your own risk.
 
 Anyone interested in continuing development is welcome to pursue an independent fork where permitted by the applicable licenses.
