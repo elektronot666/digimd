@@ -1,5 +1,28 @@
 # DigiMD
 
+Project status: Final release / Unmaintained
+
+DigiMD is provided as-is as an experimental firmware research project.
+
+This project is complete from the original author's perspective. No further development, maintenance, updates, support, or bug fixes are planned.
+
+The repository is available for reference, experimentation, and independent development, subject to applicable third-party licenses and rights.
+
+No technical support is provided.
+
+No compatibility or functionality guarantees are made.
+
+No future releases are planned.
+
+This firmware has not been fully validated on hardware.
+
+Use entirely at your own risk.
+
+Anyone interested in continuing development is welcome to pursue an independent fork where permitted by the applicable licenses.
+
+This repository is an archive, not an actively maintained project.
+
+
 Experimental firmware bringing 49 Machinedrum synthesis machines to Digitone II,
 alongside its stock synthesis, sequencing, filters, modulation and effects.
 Includes engine source and the tools used to translate, compile and package it.
